@@ -4,124 +4,330 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UnitraQ | Metformin HCl 500 mg</title>
-
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0f172a;
-        color: #ffffff;
-    }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .container {
-        padding: 16px;
-        max-width: 500px;
-        margin: auto;
-    }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
 
-    .card {
-        background: #1e293b;
-        border-radius: 14px;
-        padding: 16px;
-        margin-bottom: 14px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
+  .uq-root {
+    max-width: 480px;
+    width: 100%;
+  }
 
-    h1 {
-        font-size: 22px;
-        margin-bottom: 6px;
-        color: #38bdf8;
-    }
+  /* ── Hero ── */
+  .uq-hero {
+    background: linear-gradient(135deg, #0f4c81 0%, #1a6fa8 60%, #1e88c8 100%);
+    border-radius: 20px;
+    padding: 1.6rem 1.5rem;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 76, 129, 0.3);
+  }
+  .uq-hero::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .uq-hero::before {
+    content: '';
+    position: absolute;
+    bottom: -24px; left: -24px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
 
-    h2 {
-        font-size: 16px;
-        margin-bottom: 8px;
-        color: #facc15;
-    }
+  .uq-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.18);
+    border: 0.5px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    padding: 4px 11px;
+    font-size: 11px;
+    color: #fff;
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
+  }
+  .uq-badge svg { flex-shrink: 0; }
 
-    p, li {
-        font-size: 14px;
-        line-height: 1.5;
-    }
+  .uq-pill-icon {
+    display: inline-block;
+    width: 36px; height: 18px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 9px;
+    vertical-align: middle;
+    margin-right: 8px;
+    position: relative;
+  }
+  .uq-pill-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px; height: 13px;
+    background: rgba(255,255,255,0.55);
+  }
 
-    ul {
-        padding-left: 18px;
-    }
+  .uq-drug-name {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .uq-drug-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+  }
 
-    .badge {
-        display: inline-block;
-        padding: 4px 10px;
-        background: #22c55e;
-        border-radius: 20px;
-        font-size: 12px;
-        margin-top: 5px;
-    }
+  /* ── Grid of two cards ── */
+  .uq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
 
-    .footer {
-        text-align: center;
-        font-size: 12px;
-        opacity: 0.7;
-        margin-top: 20px;
-    }
+  /* ── Cards ── */
+  .uq-card, .uq-card-full {
+    background: #ffffff;
+    border: 0.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+  }
+  .uq-card-full {
+    margin-bottom: 10px;
+  }
 
-    .highlight {
-        color: #38bdf8;
-        font-weight: bold;
-    }
+  .uq-card-label {
+    font-size: 10.5px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .uq-icon {
+    width: 18px; height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .uq-icon-blue   { background: #dbeafe; color: #1d4ed8; }
+  .uq-icon-green  { background: #dcfce7; color: #15803d; }
+  .uq-icon-amber  { background: #fef9c3; color: #92400e; }
+  .uq-icon-teal   { background: #ccfbf1; color: #0f766e; }
+  .uq-icon-purple { background: #ede9fe; color: #6d28d9; }
+
+  .uq-big {
+    font-size: 21px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2px;
+  }
+  .uq-sub-label {
+    font-size: 11px;
+    color: #94a3b8;
+  }
+
+  /* ── Table rows ── */
+  .uq-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 0.5px solid #f1f5f9;
+  }
+  .uq-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .uq-row-label { font-size: 12px; color: #64748b; }
+  .uq-row-value { font-size: 13px; font-weight: 500; color: #1e293b; text-align: right; max-width: 55%; }
+
+  /* ── Overview text ── */
+  .uq-overview-text {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.75;
+  }
+
+  /* ── Safety ── */
+  .uq-safety-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 0.5px solid #f1f5f9;
+  }
+  .uq-safety-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .uq-safety-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .uq-safety-text {
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.55;
+  }
+
+  /* ── Footer ── */
+  .uq-footer {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding-bottom: 1rem;
+  }
+  .uq-footer-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #185FA5;
+    opacity: 0.6;
+  }
+
+  /* ── Dark mode ── */
+  @media (prefers-color-scheme: dark) {
+    body { background: #0f172a; }
+    .uq-card, .uq-card-full { background: #1e293b; border-color: #334155; }
+    .uq-card-label { color: #94a3b8; }
+    .uq-big { color: #f1f5f9; }
+    .uq-sub-label { color: #64748b; }
+    .uq-row { border-bottom-color: #1e293b; }
+    .uq-row-label { color: #94a3b8; }
+    .uq-row-value { color: #e2e8f0; }
+    .uq-overview-text { color: #94a3b8; }
+    .uq-safety-item { border-bottom-color: #1e293b; }
+    .uq-safety-text { color: #cbd5e1; }
+    .uq-footer { color: #475569; }
+    .uq-icon-blue   { background: #1e3a5f; color: #60a5fa; }
+    .uq-icon-green  { background: #14532d; color: #4ade80; }
+    .uq-icon-amber  { background: #451a03; color: #fbbf24; }
+    .uq-icon-teal   { background: #042f2e; color: #2dd4bf; }
+    .uq-icon-purple { background: #2e1065; color: #a78bfa; }
+  }
 </style>
 </head>
-
 <body>
+<div class="uq-root">
 
-<div class="container">
-
-    <div class="card">
-        <h1>Metformin HCl 500 mg</h1>
-        <p>14 Tablets</p>
-        <span class="badge">UnitraQ Verified ✔</span>
+  <!-- Hero -->
+  <div class="uq-hero">
+    <div class="uq-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10">
+        <circle cx="5" cy="5" r="4" fill="none" stroke="#fff" stroke-width="1.2"/>
+        <path d="M3 5l1.3 1.5L7 3.5" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </svg>
+      UnitraQ Verified
     </div>
+    <p class="uq-drug-name">
+      <span class="uq-pill-icon"></span>Metformin HCl 500 mg
+    </p>
+    <p class="uq-drug-sub">14 film-coated tablets &nbsp;·&nbsp; Batch PCM24091</p>
+  </div>
 
-    <div class="card">
-        <h2>📊 Batch Information</h2>
-        <p><span class="highlight">Batch No:</span> PCM24091</p>
-        <p><span class="highlight">MFG Date:</span> Jan 2026</p>
-        <p><span class="highlight">Expiry Date:</span> Dec 2028</p>
+  <!-- Date cards -->
+  <div class="uq-grid">
+    <div class="uq-card">
+      <div class="uq-card-label">
+        <span class="uq-icon uq-icon-blue">M</span> Manufactured
+      </div>
+      <p class="uq-big">Jan 2026</p>
+      <p class="uq-sub-label">MFG Date</p>
     </div>
+    <div class="uq-card">
+      <div class="uq-card-label">
+        <span class="uq-icon uq-icon-green">E</span> Expiry
+      </div>
+      <p class="uq-big">Dec 2028</p>
+      <p class="uq-sub-label">Use before</p>
+    </div>
+  </div>
 
-    <div class="card">
-        <h2>💊 Dosage</h2>
-        <p>As directed by the physician.</p>
+  <!-- Batch & Manufacturer -->
+  <div class="uq-card-full">
+    <div class="uq-card-label">
+      <span class="uq-icon uq-icon-teal">i</span> Batch &amp; Manufacturer
     </div>
+    <div class="uq-row">
+      <span class="uq-row-label">Batch No.</span>
+      <span class="uq-row-value">PCM24091</span>
+    </div>
+    <div class="uq-row">
+      <span class="uq-row-label">Manufacturer</span>
+      <span class="uq-row-value">ABC Pharma Pvt. Ltd.</span>
+    </div>
+    <div class="uq-row">
+      <span class="uq-row-label">Dosage</span>
+      <span class="uq-row-value">As directed by physician</span>
+    </div>
+    <div class="uq-row">
+      <span class="uq-row-label">Storage</span>
+      <span class="uq-row-value">Below 25°C, away from moisture</span>
+    </div>
+  </div>
 
-    <div class="card">
-        <h2>📦 Storage</h2>
-        <p>Store below 25°C. Protect from moisture.</p>
+  <!-- Product Overview -->
+  <div class="uq-card-full">
+    <div class="uq-card-label">
+      <span class="uq-icon uq-icon-purple">Rx</span> Product overview
     </div>
+    <p class="uq-overview-text">
+      Metformin Hydrochloride is used to manage Type 2 Diabetes. It improves insulin sensitivity and reduces excess glucose production in the liver, helping maintain healthy blood sugar levels.
+    </p>
+  </div>
 
-    <div class="card">
-        <h2>🏭 Manufacturer</h2>
-      <p>ABC Pharma Pvt. Ltd.</p>
+  <!-- Safety Guidelines -->
+  <div class="uq-card-full">
+    <div class="uq-card-label">
+      <span class="uq-icon uq-icon-amber">!</span> Safety guidelines
     </div>
+    <div class="uq-safety-item">
+      <span class="uq-safety-dot" style="background:#d97706;"></span>
+      <span class="uq-safety-text">Take with meals to reduce stomach discomfort</span>
+    </div>
+    <div class="uq-safety-item">
+      <span class="uq-safety-dot" style="background:#d97706;"></span>
+      <span class="uq-safety-text">Avoid excessive alcohol consumption while on this medication</span>
+    </div>
+    <div class="uq-safety-item">
+      <span class="uq-safety-dot" style="background:#dc2626;"></span>
+      <span class="uq-safety-text">Consult your doctor if you have a kidney condition before use</span>
+    </div>
+  </div>
 
-    <div class="card">
-        <h2>🔬 Product Overview</h2>
-        <p>Metformin Hydrochloride is used to manage Type 2 Diabetes by improving insulin sensitivity and reducing glucose production in the liver.</p>
-    </div>
-
-    <div class="card">
-        <h2>⚠️ Safety</h2>
-        <ul>
-            <li>Take with meals</li>
-            <li>Avoid excessive alcohol</li>
-            <li>Consult doctor in kidney conditions</li>
-        </ul>
-    </div>
-
-    <div class="footer">
-        Powered by UnitraQ | Smart Packaging System
-    </div>
+  <!-- Footer -->
+  <div class="uq-footer">
+    <span class="uq-footer-dot"></span>
+    Powered by UnitraQ Smart Packaging System
+    <span class="uq-footer-dot"></span>
+  </div>
 
 </div>
-
 </body>
 </html>
+
